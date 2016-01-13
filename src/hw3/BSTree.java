@@ -137,7 +137,8 @@ public class BSTree { // 二元搜尋樹類別
 		String filePath = hw3.class.getResource("").getPath().replace("file:", "") + "/writeTest.txt"; // 文件和該類在同個目錄下
 		try {
 			File file = new File(filePath);
-			fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF-8")); // 指點編碼格式，以免讀取時中文字符異常
+			fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8")); // 指點編碼格式，以免讀取時中文字符異常 
+			//new FileOutputStream(file,true)添加  new FileOutputStream(file)覆蓋
 //			fw.append("23,57,8,45,12,33,56,6,77,37");
 			for(int i = 0 ;i<array.size();i++ ){
 				fw.append(String.valueOf(array.get(i))+",");
