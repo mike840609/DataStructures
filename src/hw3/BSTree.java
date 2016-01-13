@@ -2,6 +2,7 @@ package hw3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.io.*;
 
 class TreeNode { // 樹節點類別
 	int data; // 節點資料
@@ -65,13 +66,13 @@ public class BSTree { // 二元搜尋樹類別
 		System.out.println();
 	}
 
-	// 方法 刪除節點 未完成  未用到
+	// 方法 刪除節點 未完成 未用到
 	// 改用陣列方法完成節點刪除
 	public void deleteNode(int target) {
 		TreeNode del_node;
 		del_node = head;
-		
-		// 跟樹根做比較 大則往又跑 小則往左找 	
+
+		// 跟樹根做比較 大則往又跑 小則往左找
 		while (true) {
 			// 在左子樹
 			if (target < del_node.data) {
@@ -79,12 +80,10 @@ public class BSTree { // 二元搜尋樹類別
 				if (del_node.left.data == target) {
 					del_node.left = null;
 					return;
-				}
-				else if(del_node.right.data == target){
+				} else if (del_node.right.data == target) {
 					del_node.right = null;
 					return;
-				}
-				else
+				} else
 					del_node = del_node.left; // 若左子樹有值則把current指標移植左節點在繼續往下找
 
 			} else { // 在右子樹
@@ -100,9 +99,6 @@ public class BSTree { // 二元搜尋樹類別
 
 	// 方法 階層搜尋
 	public void layerSearch(int data, TreeNode node) {
-		
-		
-
 
 	}
 
@@ -134,6 +130,55 @@ public class BSTree { // 二元搜尋樹類別
 			// 顯示節點資料
 			System.out.print("[" + node.data + "]");
 		}
+	}
+
+	public void writerTxt(ArrayList<Integer> array) {
+		BufferedWriter fw = null;
+		String filePath = hw3.class.getResource("").getPath().replace("file:", "") + "/writeTest.txt"; // 文件和該類在同個目錄下
+		try {
+			File file = new File(filePath);
+			fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF-8")); // 指點編碼格式，以免讀取時中文字符異常
+//			fw.append("23,57,8,45,12,33,56,6,77,37");
+			for(int i = 0 ;i<array.size();i++ ){
+				fw.append(String.valueOf(array.get(i))+",");
+			}
+			fw.flush(); // 全部寫入緩存中的內容
+			System.out.println("binarytree.txt was created");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (fw != null) {
+				try {
+					fw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public void readTxt() {
+		String filePath = hw3.class.getResource("").getPath().replace("file:", "") + "/text.txt"; // 文件和該類在同個目錄下
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8")); // 指定讀取文件的編碼格式，以免出現中文亂碼
+			String str = null;
+			while ((str = reader.readLine()) != null) {
+				System.out.println(str);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				reader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 	}
 
 	public static void main(String args[]) {
@@ -198,6 +243,7 @@ public class BSTree { // 二元搜尋樹類別
 				int value = sc.nextInt();
 				obj.insertBSTreeNode(value);
 				array.add(value);
+				obj.writerTxt(array);
 			}
 
 			else if (option.equals("q")) {
@@ -221,8 +267,8 @@ public class BSTree { // 二元搜尋樹類別
 				if (array.contains(value)) {
 					array.remove(array.indexOf(value));
 					ArrayList<Integer> temp = array;
-					//將樹清空
-					obj=new BSTree();
+					// 將樹清空
+					obj = new BSTree();
 					for (i = 0; i < temp.size(); i++) {
 						System.out.print("[" + temp.get(i) + "]");
 						obj.insertBSTreeNode(temp.get(i));
@@ -231,6 +277,7 @@ public class BSTree { // 二元搜尋樹類別
 					System.out.println(value + " Not found");
 				}
 			}
+			
 
 			else {
 				for (i = 0; i < array.size(); i++) {

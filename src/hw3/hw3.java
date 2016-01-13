@@ -28,7 +28,7 @@ class hw3 {
 
 	// 讀文件
 	public void readTxt() {
-		String filePath = hw3.class.getResource("").getPath().replace("file:", "") + "/test.txt"; // 文件和該類在同個目錄下
+		String filePath = hw3.class.getResource("").getPath().replace("file:", "") + "/text.txt"; // 文件和該類在同個目錄下
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8")); // 指定讀取文件的編碼格式，以免出現中文亂碼
@@ -52,5 +52,6 @@ class hw3 {
 	public static void main(String[] args) {
 		hw3 obj = new hw3();
 		obj.writerTxt();
+		obj.readTxt();
 	}
 }
