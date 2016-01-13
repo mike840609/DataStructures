@@ -221,6 +221,8 @@ public class BSTree { // 二元搜尋樹類別
 				if (array.contains(value)) {
 					array.remove(array.indexOf(value));
 					ArrayList<Integer> temp = array;
+					//將樹清空
+					obj=new BSTree();
 					for (i = 0; i < temp.size(); i++) {
 						System.out.print("[" + temp.get(i) + "]");
 						obj.insertBSTreeNode(temp.get(i));
