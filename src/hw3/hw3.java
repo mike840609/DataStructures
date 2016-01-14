@@ -114,10 +114,10 @@ public class hw3 { // 二元搜尋樹類別
 
 				// }
 			} else if (data == current.data) {
-				System.out.println("節點位於第:" + layer + "層");
+				System.out.println(" s" +data + "  Level "+layer);
 				break;
 			} else {
-				System.out.println("找不節點");
+				System.out.println("s"+data+"Not Found");
 				break;
 			}
 		}
@@ -244,7 +244,8 @@ public class hw3 { // 二元搜尋樹類別
 		System.out.print("PostOrder:");
 		obj.postOrder(obj.head);
 		System.out.println();
-
+		
+		obj.writerTxt(array);
 		// I = insert node
 		// d = delete node
 		// s = search node
