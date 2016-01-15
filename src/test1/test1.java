@@ -1,12 +1,12 @@
-package hw1;
+package test1;
 
 import java.util.Random;
-//import java.io.*;
 
-public class hw1 {
+public class test1 {
 
 	public static void main(String[] args) {
-		
+		// TODO Auto-generated method stub
+
 		java.util.Scanner sc = new java.util.Scanner(System.in);
 		// 陣列宣告
 		String[] player = new String[3];
@@ -110,4 +110,3 @@ public class hw1 {
 	}
 
 }
-
