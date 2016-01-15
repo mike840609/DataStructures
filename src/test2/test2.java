@@ -24,11 +24,8 @@ public class test2 {
 	public void newNode() {
 		ptr = new node();
 
-		System.out.println("===================new node================");
+		System.out.print("輸入節點:");
 		ptr.value = sc.next();
-		// System.out.println("================================");
-		previous = first;
-		current = first.next;
 
 		// 插入串列尾端
 
@@ -48,7 +45,7 @@ public class test2 {
 		// 執行替換動作
 		previous.next = ptr;
 		ptr.next = current;
-		System.out.println("\n ================新增節點完成================\n");
+		System.out.println("\n 新增節點完成\n");
 
 	}
 
@@ -84,16 +81,10 @@ public class test2 {
 				System.out.print("欲插入節點不存在");
 			}
 		}
-		
-
 	}
-
 	// 刪除第一個節點
 	public void delete() {
-		// first.value == null
-		// System.out.println(first.next.value);
-		// System.out.println(first.next.next.value);
-
+		
 		if (first.next == first) {
 			System.out.println("\n 空串列\n");
 		} else {
@@ -104,17 +95,14 @@ public class test2 {
 			previous.next = current.next;
 			current = null;
 			System.out.println("\n 完成刪除節點\n");
-
 		}
-
 	}
 
 	public void display() {
-		// int count =0;
 		if (first.next == first) {
 			System.out.println("no node");
 		} else {
-			System.out.println("================列印環狀串列==========");
+			System.out.println("列印環狀串列");
 			current = first.next;
 			do {
 				System.out.print(current.value + "=>");
@@ -130,12 +118,12 @@ public class test2 {
 		int option = 0;
 		test2 obj = new test2();
 		do {
-			System.out.println("================操作選單============");
-			System.out.println("================1.新增節點==========");
-			System.out.println("================2.插入節點==========");
-			System.out.println("================3.刪除節點==========");
-			System.out.println("================4.查看串列==========");
-			System.out.println("================5.離開程式==========");
+//			System.out.println("操作選單============");
+			System.out.println("1.新增節點");
+			System.out.println("2.插入節點");
+			System.out.println("3.刪除節點");
+			System.out.println("4.查看串列");
+			System.out.println("5.離開程式");
 			System.out.print("choice: ");
 
 			try {

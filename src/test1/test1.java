@@ -1,12 +1,8 @@
 package test1;
-
 import java.util.Random;
 
 public class test1 {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 		java.util.Scanner sc = new java.util.Scanner(System.in);
 		// 陣列宣告
 		String[] player = new String[3];
@@ -18,11 +14,10 @@ public class test1 {
 		int Draw = 0;
 
 		System.out.println("GAME STRAT");
-
 		for (int i = 0; i < 3; i++) {
 			Random ran = new Random();
 
-			System.out.println("輸入第" + (i + 1) + "次剪刀石頭布");
+			System.out.println("玩家出拳:");
 			player[i] = sc.next();
 
 			int x = ran.nextInt(3);
